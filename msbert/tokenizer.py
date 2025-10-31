@@ -214,6 +214,7 @@ class Tokenizer:
         # 3 for [CLS], [D], and [SEP]
         ids = np.full((len(all_tok_ids), max_length + 3), self.pad_token_id, dtype=np.int64)
         masks = np.zeros_like(ids, dtype=np.int64)
+        masks[:, 2::self.span_size + 1] = 1  # set mask for non-padding tokens [S]
 
         # set sepcial tokens [CLS] and [D]
         ids[:, 0] = self.cls_token_id

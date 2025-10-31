@@ -36,7 +36,7 @@ def main(args) -> None:
             import shutil
             shutil.rmtree(output_dir)
     else:
-        print(f"{args.model}'s {time_str} training time: {time.time() - start}")
+        print(f"training time: {time.time() - start}")
 
 
 if __name__ == "__main__":
